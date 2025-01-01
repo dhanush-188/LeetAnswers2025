@@ -1,0 +1,25 @@
+Problem 26 : Remove Duplicates from sorted array
+
+
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        //[0,0,1,1,1,2,2,3,3,4] 
+
+        //[0,0,1,1,1,2,2,3,3,4]
+        // u   i     
+
+        //[0,1,2,3,4,_,_,_,_] 
+
+        int uniqueLastIndex = 0; // set it to 0
+        for(int i = 1;i<nums.length;i++){// iterate i from second index --  end at nums array size
+        if(nums[uniqueLastIndex] != nums[i]){  // if u != i then 
+            nums[uniqueLastIndex + 1] = nums[i]; // increment u with respect to i 
+            uniqueLastIndex++ ; // return final incremented u 
+        }  
+    }
+        return uniqueLastIndex + 1 ;
+}
+}
+
+// Time Complexity : 0(n)
+// Space Complexity : 0(1)
