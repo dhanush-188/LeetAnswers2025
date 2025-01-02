@@ -1,5 +1,6 @@
 Problem 26 : Remove Duplicates from sorted array
 
+DS : array
 
 class Solution {
     public int removeDuplicates(int[] nums) {
