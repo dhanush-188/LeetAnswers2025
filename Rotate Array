@@ -1,0 +1,41 @@
+Problem 189 : Rotate the array 
+
+DS : array
+
+class Solution {
+    public void rotate(int[] nums, int k) {
+        k=k % nums.length;
+//[1,2,3,4,5,6,7] k= 7 (bring back to the original position)
+//[5,6,7,1,2,3,4]
+//k=3
+
+    //[7,6,5,1,2,3,4]
+    //reverse the entire array
+    //[1,2,3,4,5,6,7] -> [7,6,5,4,3,2,1]
+    reverse(nums, 0, nums.length-1);
+
+    //reverse first k elements
+    //[7,6,5,4,3,2,1] ->  [5,6,7||,4,3,2,1]
+    reverse(nums, 0, k-1);
+    //reverse the last nums.length - k elements
+    //[5,6,7,4,3,2,1]  -> [5,6,7,||1,2,3,4]
+     reverse(nums, k, nums.length - 1);
+
+    }
+
+    public void reverse(int[] nums, int start, int end){
+        //[1,2,3,4,5,6,7] -> [1,2,3,7,6,5,4]
+        //       s     e
+
+        while(start < end){   
+            int temp = nums[start];  
+            nums[start] = nums[end];  // s<e then swap their position 
+            nums[end] = temp;
+            start++;  // increment next and check the same condition 
+            end--;
+        }
+    }
+}
+
+//time complexity : o(n)
+//space compexity : 0(1)
