@@ -23,3 +23,5 @@ class Solution {
         return false;
     }
 }
+//Time complexity : o(n)
+//space complexity : o(n)
