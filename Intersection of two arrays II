@@ -1,0 +1,71 @@
+Problem 350 : Intersection of two arrays||
+
+DS : array
+
+import java.util.Hashtable;
+import java.util.ArrayList;
+
+class Solution {
+    public int[] intersect(int[] nums1, int[] nums2) {
+        //Iterate through nums1 array, store all values and frequencies inside of the
+        //hashtable
+
+        //[4,9,5,4] -> Hashtable: <4: 2, 9: 1, 5:1> -> (key: number, value: frequency)
+        // i
+        Hashtable<Integer, Integer> nums1Map = new Hashtable<>();
+        ArrayList<Integer> intersectionalAl = new ArrayList<>();
+
+        for(int i=0; i < nums1.length; i++){
+            if(nums1Map.containsKey(nums1[i])){
+                nums1Map.put(nums1[i], nums1Map.get(nums1[i]) + 1);
+            }
+            else{
+                nums1Map.put(nums1[i], 1);
+            }
+        }
+
+    //Iterate through nums2, at each iteration, check if the current element exists in our hastable
+    // if it exists, add this element to out arraylist, subtract 1 from the frequency in the hashtable
+
+    for(int i=0; i< nums2.length; i++){
+        if(nums1Map.containsKey(nums2[i])){
+            intersectionalAl.add(nums2[i]);
+            nums1Map.put(nums2[i], nums1Map.get(nums2[i]) - 1);
+            if(nums1Map.get(nums2[i]) == 0){
+                nums1Map.remove(nums2[i]);
+            }
+        }
+    }
+     int[] result = new int[intersectionalAl.size()];
+
+     for(int i = 0; i <result.length; i++){
+        result[i] = intersectionalAl.get(i);
+     }
+        return result;
+    //nums1 = [4,9,5,4]
+    //               i
+
+    //nums1Map: <5:1>
+    //nums2 = [9,4,9,8,4]
+    //                  i
+
+    //ArrayList:<9,4,4>
+    //result = [9,4,4]
+
+    //Time complexity: o(n)
+    //space complexity: o(n)
+
+    //nums1=[9,1,7,8,4]
+    //nums2=[9,1,7,8,4]
+
+    //Hashtable: n keys
+    //ArrayList: n values
+    //result array: n values as well
+
+    //space complexity: o(3n) -> o(n)
+
+    //given that n is the size of both arrays, our time complexity is going to be 
+    // o(3n) = o(n)
+
+    }
+}
