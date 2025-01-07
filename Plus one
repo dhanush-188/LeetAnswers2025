@@ -1,0 +1,41 @@
+Problem 66: Plus one
+
+DS : array
+
+class Solution {
+    public int[] plusOne(int[] digits) {
+        //case 1 : the last digit is not a 9. [1,4,7]. Add 1 to the last digit and return -> [1,4,8]
+
+        //case2 : [2,3,4,9,9] trailing 9s -> Start counter at end of array. If current digit is 9, set it equal
+        // to 0 and decrement our counter. Keep doing this until we find a digit that is not a 9, add one to that digit and return the array
+
+        //case 3 : all digits in the array are 9s -> [9,9,9,9,9] -> [1,0,0,0,0,0]
+        //must create new array with size of digits.length + 1, set the first digit to 1
+
+        //[9,0,0,0,0]
+        //c
+
+        //newArray = [0,0,0,0,0,0]
+
+        int currentDigit = digits.length - 1;
+
+        while(digits[currentDigit] == 9){
+            if(currentDigit == 0){
+                int[] newArray = new int[digits.length + 1];
+                newArray[0] = 1;
+
+                return newArray;
+            }
+
+
+            digits[currentDigit] = 0;
+            currentDigit--;
+        }
+        digits[currentDigit]++;
+        return digits;
+    }
+}
+        
+   
+   
+   
