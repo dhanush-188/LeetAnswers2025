@@ -1,0 +1,32 @@
+Problem 1: Twosum
+
+DS : array
+
+import java.util.Hashtable;
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        //[2,7,5,4,1]  -> target = 11 ->[1,3]
+
+        //check if hashtable contains the key of 11-4
+        //if it doesn't , add 5 to our hashtable with its corresponding index
+
+        //Hashtable: <2: 0,7: 1,5: 2>
+
+        //Goal: Implement a solution that will solve this with only one passing of the array
+        //HashTable: (Key: number found, Value: Index)
+
+        //Time complexity : o(n)
+        //Space complexity: o(n)
+
+        Hashtable<Integer, Integer> numbersFound = new Hashtable<>();
+
+        for(int i = 0; i<nums.length; i++){
+            if(numbersFound.containsKey(target - nums[i])){
+                return new int[]{numbersFound.get(target - nums[i]), i};
+            }
+            numbersFound.put(nums[i], i);
+        }
+        return null;
+    }
+}
