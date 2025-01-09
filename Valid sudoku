@@ -8,8 +8,8 @@ class Solution {
         //Hashset of strings
 
         //[4][2]
-        //time complexity:
-        //space complexity:
+        //time complexity: o(n^2)
+        //space complexity: o(3n ^ 2) -> (n^2)
 
         HashSet<String> numbersFound = new HashSet<>();
 
