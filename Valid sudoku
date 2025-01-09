@@ -1,0 +1,34 @@
+Problem 36 : valid sudoku
+DS : array 
+
+import java.util.HashSet;
+
+class Solution {
+    public boolean isValidSudoku(char[][] board) {
+        //Hashset of strings
+
+        //[4][2]
+        //time complexity:
+        //space complexity:
+
+        HashSet<String> numbersFound = new HashSet<>();
+
+        for(int i=0; i < board.length; i++){ // iterate through the board horizontally
+            for(int j=0; j < board[0].length; j++){ // iterate through the board vertically
+                if(board[i][j]!= '.'){  // if there is a . = blank space then 
+                    if(!numbersFound.add(i+"row"+board[i][j])){  //if there is a blank space then add a number acc to the formula given below in horizontal
+                        return false;  // if numbers not found then return false
+                    }
+                    if(!numbersFound.add(j+"column"+board[i][j])){
+                        return false;
+                }   
+                int boxNumber = ((i/3) * 3) + (j/3);
+                    if(!numbersFound.add(boxNumber+"box"+board[i][j])){
+                        return false;
+            }
+        }
+    }
+}
+        return true;
+    }
+}
