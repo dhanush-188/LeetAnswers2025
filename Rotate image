@@ -35,7 +35,7 @@ class Solution {
       // [2,5,8],
       // [3,6,9]]
 
-      //time complexity : o(n ^ 2)
+      //time complexity : o(n^2)
       //space complexity : o(1)
     }
 }
