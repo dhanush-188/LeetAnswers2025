@@ -1,0 +1,26 @@
+Problem 49: group anagram
+DS : array 
+
+class Solution {
+    public List<List<String>> groupAnagrams(String[] strs) {
+        HashMap<String, List<String>> map = new HashMap<>();
+
+        for(String s : strs){
+            char[] charArrayForS = s.toCharArray();
+            Arrays.sort(charArrayForS);
+            String sortedWord = new String(charArrayForS);
+
+            if(!map.containsKey(sortedWord)){
+                map.put(sortedWord, new ArrayList<>());
+            }
+            map.get(sortedWord).add(s);
+        }
+
+        return new ArrayList(map.values());
+
+        //sorting a string: o(klogk), where k is the length of the string
+
+        //time complexity : o(nklogk)
+        //space complexity : o(n)
+    }
+}
