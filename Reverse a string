@@ -1,0 +1,22 @@
+Problem 344 : Reverse a string
+DS : string
+
+class Solution {
+    public void reverseString(char[] s) {
+       // ["h","e","l","l","o"] s.length / 2 -> 5/2 -> 2 swaps
+       //  i 
+       //  0                4
+
+        // ["H","a","n","n","a","h"] s.length / 2 -> 6/2 -> 3 swaps
+        // ["h","a","n","n","a","H"]
+
+        for(int i = 0; i < s.length/2; i++){
+            char temp = s[i];  // i value will be 0
+            s[i] = s[s.length - i - 1]; // we will get 5 - 0 - 1 -> 4 ..last index
+            s[s.length - i - 1] = temp; // assign 4 to swap to the first index i
+        }
+    }
+}
+
+//time complexity -> o(n/2) -> o(n)
+//space complexity -> o(1)
