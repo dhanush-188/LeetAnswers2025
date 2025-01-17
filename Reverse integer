@@ -25,3 +25,6 @@ class Solution {
         return result;
     }
 }
+
+//time complexity: o(log(n))
+//space complexity : o(1)
