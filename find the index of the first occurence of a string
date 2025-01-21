@@ -23,3 +23,6 @@ class Solution {
         return -1;
     }
 }
+
+//time complexity: o(n*m)
+//space complexity: o(1)
