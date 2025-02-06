@@ -34,3 +34,5 @@ class Solution {
         return prefix;
     }
 }
+//time complexity : o(n*m)
+//space complexity : o(m)
